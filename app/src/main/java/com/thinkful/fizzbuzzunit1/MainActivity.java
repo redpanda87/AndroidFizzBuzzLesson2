@@ -2,6 +2,7 @@ package com.thinkful.fizzbuzzunit1;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -18,6 +19,13 @@ public class MainActivity extends Activity {
     String fizzBuzzString = "FizzBuzz";
     String valueString;
 
+    int [] fizzArray = new int[10];
+    int fizzIndex=0;
+
+    int [] buzzArray = new int[10];
+    int buzzIndex=0;
+
+
 
     public String checkValue(int i){
 
@@ -31,11 +39,15 @@ public class MainActivity extends Activity {
         else if (i%3 == 0) {
 
             valueString = fizzString;
+            fizzArray[fizzIndex]=i;
+            fizzIndex++;
         }
         // divisible por 5
         else if (i%5 == 0) {
 
             valueString = buzzString;
+            buzzArray[buzzIndex]=i;
+            buzzIndex++;
         }
         else{
             valueString = String.valueOf(i);
@@ -90,11 +102,20 @@ public class MainActivity extends Activity {
 
         for (int i=1; i <= numberOfValues;i++){
 
-
-
-
-
             textView.append(checkValue(i) + "\n");
+
+
+        }
+
+        for (int i=0;i < fizzArray.length;i++){
+
+            Log.i("MyData","fizzArray["+ i +"]= "+fizzArray[i]);
+
+        }
+
+        for (int i=0;i < buzzArray.length;i++){
+
+            Log.i("MyData","buzzArray["+ i +"]= "+buzzArray[i]);
 
         }
         
